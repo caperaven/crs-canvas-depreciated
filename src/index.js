@@ -8,6 +8,7 @@ import {BehaviourBase} from "./behaviours/behaviour-base.js"
 import {MoveBehaviour} from "./behaviours/move-behaviour.js";
 
 import {Rectangle} from "./shapes/simple/rectangle.js";
+import {Circle} from "./shapes/simple/circle.js";
 
 globalThis.crsCanvas = globalThis.crsCanvas || {
     initialize: initialize,
@@ -17,7 +18,8 @@ globalThis.crsCanvas = globalThis.crsCanvas || {
         BehaviourBase: BehaviourBase
     },
     shapes: {
-        Rectangle: Rectangle
+        Rectangle: Rectangle,
+        Circle: Circle
     },
     behaviours: {
         Move: MoveBehaviour

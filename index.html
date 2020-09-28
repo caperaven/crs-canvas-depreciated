@@ -42,13 +42,13 @@
     <script type="module" src="./src/index.js"></script>
 
     <script type="module">
-        const rect = new crsCanvas.shapes.Rectangle(0, 0, 50, 50);
+        const shape = new crsCanvas.shapes.Circle(0, 0, 50, {fillStyle: "red"});
 
         const element = document.querySelector("canvas");
         const btnMove = document.querySelector("#btnMove");
 
         btnMove.addEventListener("click", () => {
-            rect.addBehaviour(new crsCanvas.behaviours.Move(400, 100, 0.016));
+            shape.addBehaviour(new crsCanvas.behaviours.Move(400, 100, 0.016));
         })
 
         let ctx;
@@ -57,7 +57,7 @@
             ctx.beginPath();
             ctx.clearRect(0, 0, element.width, element.height);
 
-            rect.update().draw(ctx);
+            shape.update().draw(ctx);
             requestAnimationFrame(animate);
         }
 
