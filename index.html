@@ -6,8 +6,65 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
+
+    <style>
+        html, body {
+            padding: 0;
+            margin: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            display: grid;
+            grid-template-rows: 2rem 1fr;
+        }
+
+        canvas {
+            width: 100%;
+            height: 100%;
+        }
+
+        .toolbar {
+            display: flex;
+            align-items: center;
+            margin: 0 1rem;
+        }
+    </style>
 </head>
 <body>
+    <div class="toolbar">
+        <button id="btnMove">Move</button>
+    </div>
 
+    <canvas></canvas>
+
+    <script type="module" src="./src/index.js"></script>
+
+    <script type="module">
+        const rect = new crsCanvas.shapes.Rectangle(0, 0, 50, 50);
+
+        const element = document.querySelector("canvas");
+        const btnMove = document.querySelector("#btnMove");
+
+        btnMove.addEventListener("click", () => {
+            rect.addBehaviour(new crsCanvas.behaviours.Move(400, 100, 0.016));
+        })
+
+        let ctx;
+
+        function animate () {
+            ctx.beginPath();
+            ctx.clearRect(0, 0, element.width, element.height);
+
+            rect.update().draw(ctx);
+            requestAnimationFrame(animate);
+        }
+
+        crsCanvas.initialize(element).then(context => {
+            ctx = context;
+            animate();
+        });
+    </script>
 </body>
 </html>

@@ -1,7 +1,7 @@
 import { terser } from "rollup-plugin-terser";
 
 export default {
-    input: "src/index.js",
+    input: "canvas/index.js",
     output: [
         {file: 'dist/lib.min.js', format: 'cjs'},
         {file: 'dist/lib.esm.js', format: 'es'}
