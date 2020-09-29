@@ -15,16 +15,4 @@ export class Entity {
         this._behaviours.push(behaviour);
         behaviour.initialize(this);
     }
-
-    update() {
-        for (let behaviour of this._behaviours) {
-            const done = behaviour.update(this);
-
-            if (done == true) {
-                behaviour.stop()
-            }
-        }
-
-        return this;
-    }
 }

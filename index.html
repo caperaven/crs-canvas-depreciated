@@ -42,7 +42,9 @@
     <script type="module" src="./src/index.js"></script>
 
     <script type="module">
+        const scene = new crsCanvas.base.Scene();
         const shape = new crsCanvas.shapes.Circle(0, 0, 50, {fillStyle: "red"});
+        scene.add(shape);
 
         const element = document.querySelector("canvas");
         const btnMove = document.querySelector("#btnMove");
@@ -57,7 +59,7 @@
             ctx.beginPath();
             ctx.clearRect(0, 0, element.width, element.height);
 
-            shape.update().draw(ctx);
+            scene.updateAndDraw(ctx);
             requestAnimationFrame(animate);
         }
 

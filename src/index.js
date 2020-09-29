@@ -1,4 +1,5 @@
 import {initialize} from "./canvas/canvas.js";
+import {Scene} from "./canvas/scene.js";
 import {lerp} from "./utils/math.js"
 
 import {Entity} from "./shapes/entity.js";
@@ -15,7 +16,8 @@ globalThis.crsCanvas = globalThis.crsCanvas || {
     base: {
         Entity: Entity,
         Graphic: Graphic,
-        BehaviourBase: BehaviourBase
+        BehaviourBase: BehaviourBase,
+        Scene: Scene
     },
     shapes: {
         Rectangle: Rectangle,
